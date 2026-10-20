@@ -32,4 +32,4 @@ All rights not expressly granted in these terms or otherwise available under the
 
 ## Permission requests
 
-Contact [Razi Rais on LinkedIn](https://www.linkedin.com/in/razirais/) to request permission. Written permission must be obtained before proceeding with a use that requires it.
+To request permission, contact Razi Rais through either the [website contact page](https://www.razibinrais.com/contact/) or [LinkedIn](https://www.linkedin.com/in/razirais/). Written permission must be obtained before proceeding with a use that requires it.

@@ -24,7 +24,7 @@ The practical test is straightforward: the assigned job should succeed, while re
 
 His teaching connects architectural principles to the decisions practitioners face when designing, operating, and defending real systems.
 
-[Author website](https://www.razibinrais.com/) | [Contact Razi on LinkedIn](https://www.linkedin.com/in/razirais/)
+[Author website](https://www.razibinrais.com/) | [Website contact page](https://www.razibinrais.com/contact/) | [Contact Razi on LinkedIn](https://www.linkedin.com/in/razirais/)
 
 ## What the course covers
 
@@ -79,4 +79,4 @@ Use the official course page for the current description, prerequisites, session
 
 The [course material license](LICENSE.md) sets out personal study permissions, attribution requirements, and uses requiring prior written permission for original course material owned by Razi Rais.
 
-Third party resources retain their respective copyright and license terms. The course license does not replace those terms. Permission requests for the original course material can be directed to [Razi Rais on LinkedIn](https://www.linkedin.com/in/razirais/).
+Third party resources retain their respective copyright and license terms. The course license does not replace those terms. To request permission for the original course material, contact Razi Rais through either the [website contact page](https://www.razibinrais.com/contact/) or [LinkedIn](https://www.linkedin.com/in/razirais/).
