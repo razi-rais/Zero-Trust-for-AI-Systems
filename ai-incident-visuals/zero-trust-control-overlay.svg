@@ -9,6 +9,7 @@
   <text x="72" y="161" fill="#D2DFE9" font-family="Arial, Helvetica, sans-serif" font-size="27" font-weight="400" text-anchor="start">Same progression. Independent checks where authority changes.</text>
   <rect x="1450" y="28" width="278" height="40" fill="#174C43" rx="12" />
   <text x="1589" y="55" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" text-anchor="middle">PROPOSED CONTROLS</text>
+  <text x="1728" y="90" fill="#B9CFDE" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="400" text-anchor="end">https://razibinrais.com</text>
   <polyline points="74,190 112,190" fill="none" stroke="#C7444D" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
   <text x="124" y="197" fill="#D2DFE9" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="400" text-anchor="start">Incident path</text>
   <polyline points="302,190 340,190" fill="none" stroke="#AFC2D3" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10 12" />
@@ -284,5 +285,6 @@
   <rect x="64" y="2084" width="1672" height="64" fill="#E4F4EE" rx="14" />
   <text x="96" y="2125" fill="#087B65" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" text-anchor="start">Green gates are proposed defenses. Red arrows preserve the incident path for comparison.</text>
   <text x="72" y="2174" fill="#52657A" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="400" text-anchor="start">Razi Rais | Zero Trust for AI Systems</text>
+  <text x="900" y="2174" fill="#52657A" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="400" text-anchor="middle">https://razibinrais.com</text>
   <text x="1728" y="2174" fill="#52657A" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" text-anchor="end">CONTROL OVERLAY</text>
 </svg>
