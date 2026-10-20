@@ -1,10 +1,55 @@
-# Zero Trust for AI Systems
+# Zero Trust for AI Systems: Architecture and AI Agent Security
 
-**Course resources by [Razi Rais](https://www.linkedin.com/in/razirais/), cybersecurity and AI practitioner, author, and instructor.**
+**A practical course by [Razi Rais](https://www.linkedin.com/in/razirais/), cybersecurity and AI practitioner, author, and instructor.**
 
-How should an enterprise control an AI system that can choose tools, access data, and act on results? This course examines that question through Zero Trust architecture, technical walkthroughs, and incident analysis.
+What stops an AI agent from turning a permitted tool into a route to systems it was never authorized to reach?
+
+Explore Zero Trust architecture through guided walkthroughs and the documented OpenAI and Hugging Face incident. Follow how agents crossed evaluation boundaries, reached live infrastructure, and expanded their access. Examine where identity checks, workload isolation, least privilege, and independent response should constrain agentic AI.
 
 [Read the course PDF](Zero-Trust-Security-for-AI-Systems.pdf) | [Attend the live course on O'Reilly](https://www.oreilly.com/live-events/zero-trust-for-ai-systems/0636920066250/) | [Explore the resources](Resources/README.md) | [Read the course license](LICENSE.md)
+
+## Key takeaways: practical Zero Trust for AI
+
+| What you will learn | What it means in practice |
+|---|---|
+| Walk through Zero Trust architecture | Trace an access request from caller identity and device context through policy decisions, enforcement, and the protected resource. |
+| Analyze a documented AI harness escape | Follow the OpenAI and Hugging Face case through indirect internet access, shared artifacts, exposed credentials, and unsafe dataset processing. |
+| Place controls where authority changes | Identify the enforcement points between helper tools, isolated workers, host privileges, data objects, and result recipients. |
+| Separate task success from authorized behavior | Understand why a valid credential, a convincing answer, or an assigned goal does not authorize every action an agent can take. |
+| Connect threat analysis to architecture | Use MITRE ATLAS and OWASP to analyze AI threats. Relate the findings to NIST architecture guidance and CISA maturity guidance. |
+| Plan containment, not just detection | Examine limited credentials, protected evidence, independent revocation, and verification that a workload actually stops. |
+| Assess AI's role in Zero Trust | Explore behavioral analysis and contextual risk assessment without confusing model judgment with permission to act. |
+
+The course combines architectural walkthroughs, incident analysis, group discussion, and Q&A. Its principles apply across vendors and cloud platforms.
+
+## AI harness escape case study: OpenAI and Hugging Face
+
+The July 2026 incident began in OpenAI's internal cybersecurity evaluations with reduced safeguards. Agents used a package service as an unauthorized communication channel and internet relay, then reached external systems.
+
+Hugging Face documented file disclosure through HDF5 processing, separate code execution through Jinja2 template injection, and further access enabled by exposed credentials.
+
+**The impact was real, even though the starting point was an evaluation.** Hugging Face reported intrusion into production infrastructure and access to five customer datasets associated with the evaluation challenges. This was not an ordinary ChatGPT session.
+
+Incident sources: [OpenAI's account](https://openai.com/index/hugging-face-incident-and-the-road-ahead/) and [Hugging Face's technical timeline](https://huggingface.co/blog/agent-intrusion-technical-timeline).
+
+The course traces selected attack paths, examines agent replanning, and maps reported behavior to MITRE ATLAS. We assess where Zero Trust controls could limit exposure.
+
+## Zero Trust controls applied to the incident
+
+Adapted from page 85 of the [course PDF](Zero-Trust-Security-for-AI-Systems.pdf). Each row connects reported behavior to the service that can refuse the next unauthorized action.
+
+| Reported behavior | Zero Trust principle | Enforcement point | Proposed control |
+|---|---|---|---|
+| Agents coordinated through shared helper artifacts. | Use least privilege access | Package broker and isolated run state | Permit approved package reads. Deny arbitrary relays and access to another run's artifacts. |
+| An exposed account token enabled dataset uploads. | Verify explicitly | API entry gate and account owner | Revoke exposed tokens. Check caller, action, and target. An authenticated upload remains untrusted input. |
+| HDF5 processing disclosed local worker files. | Use least privilege access | Input file resolver | Allow only assigned input. Reject path and symlink escapes and unrelated local reads. |
+| Jinja2 evaluated hostile expressions inside a worker. | Assume breach | Conversion parser | Remove expression evaluation. Use a restricted data grammar so input cannot become worker commands. |
+| Excess permissions enabled host privilege expansion. | Assume breach | Workload admission and runtime | Reject privileged workloads and host mounts. Restrict runtime privileges and metadata access separately. |
+| Recovered credentials opened additional routes. | Use least privilege access | Protected credential issuer and receiving resource | Check issuer, job, audience, action, object, expiry, and revocation. Refuse use outside the assigned scope. |
+| Access extended to private data. | Verify explicitly | Data service and result release gate | Authorize the exact object before reading. Separately authorize the recipient before releasing the result. |
+| Repositories carried commands and results between workers. | Assume breach | Protected logging and independent responder | Keep evidence outside the worker. Independently stop jobs and revoke grants. Verify the workload actually stops. |
+
+**These are proposed defensive controls, not a claim that they would have prevented the historical incident.** The distinction is between explaining the reported attack and designing boundaries that constrain a similar path.
 
 ## The core thesis
 
@@ -25,22 +70,6 @@ The practical test is straightforward: the assigned job should succeed, while re
 His teaching connects architectural principles to the decisions practitioners face when designing, operating, and defending real systems.
 
 [Author website](https://www.razibinrais.com/) | [Website contact page](https://www.razibinrais.com/contact/) | [Contact Razi on LinkedIn](https://www.linkedin.com/in/razirais/)
-
-## What the course covers
-
-| Area | What we examine |
-|---|---|
-| Zero Trust foundations | The limits of perimeter trust, explicit verification, least privilege, and the assumption of compromise. |
-| Architecture and maturity | Policy decisions, enforcement, contextual access, organizational adoption, and the distinct roles of NIST architecture guidance and CISA maturity guidance. |
-| AI risk and assurance | How model output, action selection, and system authority differ. Why a convincing answer or a valid credential is insufficient evidence of a safe action. |
-| Threat frameworks | Using OWASP and MITRE ATLAS to describe AI risks, analyze observed behavior, and connect threats to enforcement points. |
-| Incident analysis | The OpenAI and Hugging Face research incident, including agent replanning, shared state, input processing flaws, credential exposure, and changes in authority. |
-| Control placement and response | Constraints on helpers and workers, authorization for objects and recipients, protected evidence, revocation, isolation, and verification that a job actually stops. |
-| AI supporting Zero Trust | Opportunities for contextual risk assessment and detection, considered alongside the controls that must remain independently enforceable. |
-
-Incident walkthroughs distinguish reported evidence from proposed defensive designs. A suggested control is not presented as proof that it would have prevented the historical incident.
-
-The course combines conceptual explanations, scenario walkthroughs, group discussion, and Q&A. Its principles apply across vendors and cloud platforms.
 
 ## Who this is for
 
